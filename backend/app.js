@@ -64,7 +64,7 @@ router.get('/api/qrcode', async (ctx) => {
   };
 });
 
-router.get('/api/check', body(), async (ctx) => {
+router.post('/api/check', body(), async (ctx) => {
   const body = ctx.request.body;
   const user = new User(body);
   const data = await user.checkQRLogin();
@@ -86,7 +86,7 @@ router.get('/api/userinfo', async (ctx) => {
   ctx.body = { data };
 });
 
-router.get('/api/delaccount', body(), async (ctx) => {
+router.post('/api/delaccount', body(), async (ctx) => {
   const body = ctx.request.body;
   const eid = body.eid;
   const user = new User({ eid });
@@ -94,7 +94,7 @@ router.get('/api/delaccount', body(), async (ctx) => {
   ctx.body = { data };
 });
 
-router.get('/api/update/remark', body(), async (ctx) => {
+router.post('/api/update/remark', body(), async (ctx) => {
   const body = ctx.request.body;
   const eid = body.eid;
   const remark = body.remark;
@@ -117,7 +117,7 @@ router.get('/api/users', async (ctx) => {
 
 ///////////////////////////////////////////////
 
-router.get('/api/WSCKLogin', body(), async (ctx) => {
+router.post('/api/WSCKLogin', body(), async (ctx) => {
   const body = ctx.request.body;
   const user = new User(body);
   const data = await user.WSCKLogin();
@@ -132,7 +132,7 @@ router.get('/api/WSCKUserinfo', async (ctx) => {
   ctx.body = { data };
 });
 
-router.get('/api/WSCKDelaccount', body(), async (ctx) => {
+router.post('/api/WSCKDelaccount', body(), async (ctx) => {
   const body = ctx.request.body;
   const wseid = body.wseid;
   const user = new User({ wseid });
@@ -140,7 +140,7 @@ router.get('/api/WSCKDelaccount', body(), async (ctx) => {
   ctx.body = { data };
 });
 
-router.get('/api/updateWSCK/remark', body(), async (ctx) => {
+router.post('/api/updateWSCK/remark', body(), async (ctx) => {
   const body = ctx.request.body;
   const wseid = body.wseid;
   const remark = body.remark;
